@@ -16,17 +16,25 @@ app.use(express.static(publicPath));
 let user = 0;
 // register an event listener
 io.on('connection', (socket) => {
-    clear();
-    user = user + 1;
+    
+  
     console.log('New user connected');
-    console.log(`Number of users: ${user}`);
+
   
     socket.on('disconnect', () => {
-        clear();
-        console.log('User disconnected');
-        user = user - 1;
-        console.log(`Number of users: ${user}`);
        
+        console.log('User disconnected');
+       
+       
+    });
+
+    socket.emit('newMessage', {
+        from: "Laurean Ray",
+        text: "hello world!"
+    })
+
+    socket.on('createMessage', (newMessage) => {
+        console.log("New message", newMessage);
     });
 });
 
