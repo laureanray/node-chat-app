@@ -9,4 +9,12 @@
 <body>
     <h1> Welcome to the chat app </h1>
 </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io(); // initiate the request to the server
+        
+        socket.on('connect', () => {
+            console.log('Connected to server');
+        });
+    </script>
 </html>
