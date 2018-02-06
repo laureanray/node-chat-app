@@ -28,13 +28,14 @@ io.on('connection', (socket) => {
        
     });
 
-    socket.emit('newMessage', {
-        from: "Laurean Ray",
-        text: "hello world!"
-    })
-
     socket.on('createMessage', (newMessage) => {
         console.log("New message", newMessage);
+
+        io.emit('newMessage', {
+            from: newMessage.from,
+            text: newMessage.text,
+            createAt: new Date().getTime()
+        });
     });
 });
 
