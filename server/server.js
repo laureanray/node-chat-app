@@ -17,12 +17,12 @@ app.use(express.static(publicPath));
 let user = 0;
 // register an event listener
 io.on('connection', (socket) => {
-    clear();
+   
     console.log('New user connected');
     user = user + 1;
     console.log(`Connected user: ${user}`);
     socket.on('disconnect', () => {
-        clear();
+        
         user = user - 1;
         console.log('User disconnected');
         console.log(`Conneted user: ${user}`);       
