@@ -12,7 +12,8 @@ socket.on('newMessage', function(message) {
    
 
     var li = $('<li></li>');
-    li.text(`${message.from}: ${message.text}`);
+    var stamp = moment(message.createdAt).format('h:mm a');
+    li.text(`<span id="hl">${message.from}: ${stamp}</span> ${message.text}`);
 
     $('#messages').append(li);
 });
@@ -21,15 +22,15 @@ socket.on('newLocationMessage', function(message)  {
     var li = $('<li></li>');
 
     var a = $('<a target="_blank"> My current location </a>');
-
-    li.text(`${message.from}: `);
+    var location_stamp = moment(message.createdAt).format('h:mm a');
+    li.text(`${message.from}: ${location_stamp}`);
     a.attr('href', message.url);
     li.append(a);
     $('#messages').append(li);
 });
 
 socket.on('connected', function() {
-    console.log('Welcome to the cat app');
+    console.log('Welcome to the chat app');
 });
 
 socket.on('connect-admin', function() {
@@ -40,7 +41,7 @@ var messageTextBox = $('[name=message]');
 
 jQuery('#message-form').on('submit', function(e){
     e.preventDefault();
-
+  
     socket.emit('createMessage', {
         from: 'User',
         text: messageTextBox.val()
