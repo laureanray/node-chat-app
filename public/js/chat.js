@@ -32,12 +32,12 @@ socket.on('disconnect', function () {
 });
 
 socket.on('updateUserList', function (users) {
-   var ol = $('<ol></ol>');
+   var ol = $('<ol class=\'list-group\'></ol>');
 
    users.forEach(function (user) {
-    ol.append($('<li></li>').text(user));
+    ol.append($('<li class=\'list-group-item\'></li>').text(user));
    });
-
+   $('#number').html(users.length);
    $('#users').html(ol);
 });
 

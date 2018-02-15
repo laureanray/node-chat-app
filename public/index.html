@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
     <script src="/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/js/index.js"></script>
     <title> Anonychat </title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -23,35 +24,43 @@
                         </div>
                         <div class="col-sm">
                                <h5 class="text-dark"> Rooms </h5>
-                               <nav class="nav nav-pills flex-column flex-sm-row" id="room-selector">
-                                    <a class="flex-sm-fill text-sm-center nav-link bg-dark text-light" href="#">Public</a>
-                                    <a class="flex-sm-fill text-sm-center nav-link text-muted" href="#">Private</a>
-                                    <a class="flex-sm-fill text-sm-center nav-link text-muted" href="#">Announcement</a>
-                                </nav>
+                               <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                                    </li>
+                                  </ul>
+                                  <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+                                  </div>
+                                  
                         </div> 
                         <div class="col-sm">
-                                <form action="/chat.html" autocomplete="off">
+                                <form action="/chat.html" autocomplete="off" id="join-form">
                                     <div class="form-group border">
                                         <img src="img/chat.png" class="rounded mx-auto d-block" alt="...">
                                         <label for="Display Name"> Display Name </label>
                                         <input type="text" name="name" class="form-control" autofocus/>
                                         <label for="Room Name"> Room Name </label>
                                         <input type="text" class="form-control"  name="room"/><br>
-                                        <button class="btn btn-dark"> Join </button>
+                                        <button class="btn btn-dark"> Join <img src="/img/right-arrow.png" alt=""></button>
                                     </div>
                                 </form>
                             </div>   
+                       
                     </div>
                     <footer class="">
                             <p class="text-dark"> Laurean Ray | Copyright &copy; 2018 </p>
                     </footer>
         </div>
        </div>        
-    </div>
-       
-       
-                
-    
- 
+    </div> 
 </body>
 </html>
