@@ -34,3 +34,14 @@ ol li{
   -webkit-overflow-scrolling: touch;
   padding: 10px;
 }
+
+#time-stamp{
+  font-size: 13px;
+}
+#from{
+  font-size: 14px;
+}
+.message__body p{
+  padding: 0;
+  margin: 0;
+}

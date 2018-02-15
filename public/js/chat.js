@@ -55,6 +55,10 @@ socket.on('newMessage', function(message) {
     scrollToBottom();
 });
 
+socket.on('roomName', function(room) {
+    console.log(room);
+});
+
 socket.on('newLocationMessage', function(message)  {
     var location_stamp = moment(message.createdAt).format('h:mm a');
     var template = $('#location-message-template').html();

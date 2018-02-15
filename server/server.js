@@ -51,6 +51,7 @@ io.on('connection', (socket) => {
         socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
         //MESSAGE TO EVERYONE EXCEPT THE USER ITSELF
         socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
+        socket.broadcast.to(params.room).emit('roomName', params.room);
         callback();
     });
 
