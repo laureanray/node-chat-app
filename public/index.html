@@ -4,27 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Join | ChatApp </title>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
+    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <title> Anonychat </title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="centered-form">
-    <div class="centered-form__form">
-        <form action="/chat.html">
-            <div class="form-field">
-                <h3> Join a chat </h3>
-            </div>
-            <div class="form-field">
-                <label for="Display Name"> Display Name </label>
-                <input type="text" name="name" autofocus/>
-            </div>
-            <div class="form-field">
-                <label for="Room Name"> Room Name </label>
-                <input type="text" name="room"/>
-            </div>
-            <div class="form-field">
-                <button> Join </button>
-            </div>
-        </form>
+    <div class="container">
+       <div class="parent-div">
+            <div class="welcome">
+                <div class="row ">
+                        <div class="col-sm">
+                            <h1> Hello.</h1>
+                            <h7> Welcome to <span class="text-muted"> anonychat</span>. A chat application written in Node.Js</h7>
+                        </div>
+                        <div class="col-sm">
+                               <h5 class="text-dark"> Rooms </h5>
+                               <nav class="nav nav-pills flex-column flex-sm-row" id="room-selector">
+                                    <a class="flex-sm-fill text-sm-center nav-link bg-dark text-light" href="#">Public</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link text-muted" href="#">Private</a>
+                                    <a class="flex-sm-fill text-sm-center nav-link text-muted" href="#">Announcement</a>
+                                </nav>
+                        </div> 
+                        <div class="col-sm">
+                                <form action="/chat.html" autocomplete="off">
+                                    <div class="form-group border">
+                                        <img src="img/chat.png" class="rounded mx-auto d-block" alt="...">
+                                        <label for="Display Name"> Display Name </label>
+                                        <input type="text" name="name" class="form-control" autofocus/>
+                                        <label for="Room Name"> Room Name </label>
+                                        <input type="text" class="form-control"  name="room"/><br>
+                                        <button class="btn btn-dark"> Join </button>
+                                    </div>
+                                </form>
+                            </div>   
+                    </div>
+                    <footer class="">
+                            <p class="text-dark"> Laurean Ray | Copyright &copy; 2018 </p>
+                    </footer>
+        </div>
+       </div>        
     </div>
+       
+       
+                
+    
+ 
 </body>
 </html>
