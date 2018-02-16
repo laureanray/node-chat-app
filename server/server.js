@@ -12,6 +12,7 @@ const {isRealString} = require('./utils/validation');
 const {Users} = require('./utils/users');
 
 //VARIABLES
+let colors = ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"];
 let publicPath = path.join(__dirname, '../public');
 let app = express();
 let port = process.env.PORT || 3000;
@@ -46,9 +47,12 @@ io.on('connection', (socket) => {
         }
         socket.join(params.room);
         users.removeUser(socket.id);
-        users.addUser(socket.id, params.name, params.room);
+        let rand = Math.floor(Math.random() * 8);
+        let new_val = colors[rand];
+        users.addUser(socket.id, params.name, params.room, new_val);
 
         io.to(params.room).emit('updateUserList', users.getUserList(params.room))
+        
         //MESSAGE TO USER
         socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
         //MESSAGE TO EVERYONE EXCEPT THE USER ITSELF
@@ -63,7 +67,7 @@ io.on('connection', (socket) => {
         let user = users.getUser(socket.id);    
 
         if(user && isRealString(newMessage.text)) {
-            io.to(user.room).emit('newMessage', generateMessage(user.name, newMessage.text));
+            io.to(user.room).emit('newMessage', generateMessage(user.name, newMessage.text, user.unique));
         }
 
       

@@ -1,0 +1,10 @@
+TODO
+
+1. No two same username at the same room.
+2. Room case insensetivity.
+3. Improved Security & Authentication.
+4. Front End. Mobile Responsiveness.
+5. UX Design, maybe recolor.
+6. Room List with Green icon plus the number of users connected.
+7. Limitation per room.
+8. More??

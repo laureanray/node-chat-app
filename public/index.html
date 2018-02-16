@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Pace -->
+    <script src="/libs/pace-master/pace.js"></script>
+    <link href="/libs/pace-master/themes/black/pace-theme-flash.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
     <script src="/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <script src="/pace/pace.js"></script>
+    <link href="/pace/themes/pace-theme-barber-shop.css" rel="stylesheet" />
+    <!-- or -->
+    
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+      <!-- FONT -->
+      <link rel="stylesheet" href="/font/font-book/stylesheet.css">
     <title> Anonychat </title>
     <link rel="stylesheet" href="/css/styles.css">
+
        <!-- ICON -->
        <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
        <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
@@ -29,19 +42,19 @@
        <link rel="manifest" href="/img/manifest.json">
        <meta name="msapplication-TileColor" content="#ffffff">
        <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
-       <meta name="theme-color" content="#202020">
+       <meta name="theme-color" content="# ">
 </head>
 <body class="centered-form">
     <div class="container">
        <div class="parent-div">
-            <div class="welcome">
+                <div class="welcome">
                 <div class="row ">
                         <div class="col-sm">
-                            <h1> Hello.</h1>
-                            <h7> Welcome to <span class="text-muted"> anonychat</span>. A chat application written in Node.Js</h7> <a href="#" class="badge badge-dark">Learn more</a>
+                            <h1 class="text-dark animated tada"> Hello.</h1>
+                            <h7 class="text-dark"> Welcome to <span class="text-dark"> anonychat</span>. A chat application written in Node.Js</h7> <a href="#" class="badge badge-dark">Learn more</a>
                         </div>
                         <div class="col-sm">
-                                <h4> Join a room. </h4>
+                                <h4 class="text-dark"> Join a room. </h4>
                                 <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Public</a>
@@ -61,20 +74,25 @@
                         </div> 
                         <div class="col-sm">
                                 <form action="/chat.html" autocomplete="off" id="join-form">
-                                    <div class="form-group border">
+                                    <div class="form-group border bg-light">
                                         <img src="img/chat.png" class="rounded mx-auto d-block" alt="...">
                                         <label for="Display Name"> Display Name </label>
                                         <input type="text" name="name" class="form-control" autofocus/>
                                         <label for="Room Name"> Create and Join a room </label>
                                         <input type="text" class="form-control"  name="room"/><br>
-                                        <button class="btn btn-dark"> Join <img src="/img/right-arrow.png" alt=""></button>
+                                        <p class="text-muted"> By using Anonychat, you accept our <a href=""> Terms and Conditions </a>. You must be 18+ or 13+ with parental permission. </p>
+                    
+                                        <button class="btn btn-dark  animated infinite rubberBand"> Join     <img src="/img/right-arrow.png" alt=""></button>
                                     </div>
                                 </form>
                             </div>   
-                       
+                
                     </div>
                     <footer class="">
-                            <p class="text-dark"> Laurean Ray | Copyright &copy; 2018 </p>
+                            <p class="text-dark"> Anonychat | Copyright &copy; 2018 </p>
+                            <p class="text-muted"> developed by <span class="badge badge-dark"> Laurean Ray </span></p>
+                            <a <a class="badge badge-pill badge-dark" href="https://github.com/laureanray"> Github </a>  <a class="badge badge-pill badge-info" href="http://laureanray.com"> Personal Site </a>
+                            
                     </footer>
         </div>
        </div>        

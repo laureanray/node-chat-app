@@ -1,14 +1,15 @@
 body{
+  font-family: 'circularr'!important;
   background: #fafafa; 
-}
 
-.form-group{
-  padding: 20px;
 }
+  .form-group{
+    padding: 20px;
+  }
 
-footer{
-  margin-top: 20px;
-}
+  footer{
+    margin-top: 20px;
+  }
 
 #room-selector{
   margin-top: 20px;
@@ -18,14 +19,12 @@ footer{
   background: #202020;
 }
 
+#join-form p{
+  font-size: 13px;
+} 
 .parent-div{
-  padding: 5% 0;
-
+  padding: 7% 0 7% 0; 
 }
-.welcome{
-  padding: 10% 0;
-}
-
 @media (max-width: 575.98px){
   .col-sm:first-child{
     text-align: center;
@@ -34,10 +33,24 @@ footer{
     margin: 15px 0 15px 0;
   }
   .col-sm:nth-child(1){
-    height: 100px;
+    min-height: 150px;
+    padding: 5px 0 20px 0;
+   
   }
-  .col-sm:nth-child(2) h5{
+
+  .col-sm:nth-child(2){
+    display: none;
+  }
+  footer p{
     text-align: center;
+  }
+  footer p:first-child{
+    padding: 0;
+  }
+  footer p:nth-child(2){
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
   }
 }
 @media (max-width: 767.98px){
@@ -46,5 +59,15 @@ footer{
 @media (min-width: 768px){
   body{
     overflow: hidden!important; 
+  }
+}
+@media(min-width: 576px) and (max-width: 767.98px){
+
+  .parent-div{
+    padding: 4% 0;
+  
+  }
+  .welcome{
+    padding: 8% 0;
   }
 }

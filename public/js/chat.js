@@ -1,5 +1,6 @@
 var socket = io(); // initiate the request to the server
 
+
 function scrollToBottom() {
     let messages = $('#messages');  
     let newMessage = messages.children('li:last-child');
@@ -35,7 +36,7 @@ socket.on('updateUserList', function (users) {
    var ol = $('<ol class=\'list-group\'></ol>');
 
    users.forEach(function (user) {
-    ol.append($('<li class=\'list-group-item bg-secondary text-light\'></li>').text(user));
+    ol.append($('<li class=\'list-group-item bg-secondary text-light animated fadeIn\'></li>').text(user));
    });
    $('#number').html(users.length);
    $('#users').html(ol);
@@ -43,12 +44,15 @@ socket.on('updateUserList', function (users) {
 
 
 socket.on('newMessage', function(message) {
+   
+   
     var stamp = moment(message.createdAt).format('h:mm a');
     var template = $('#message-template').html();
     var html = Mustache.render(template, {
         text: message.text,
         from: message.from,
-        createdAt: stamp
+        createdAt: stamp,
+        color: message.unique
     });
 
     $('#messages').append(html);
