@@ -5,10 +5,12 @@ const express = require('express');
 const socketIO = require('socket.io');
 const clear = require('clear');
 const moment = require('moment');
+const fs = require('fs');
 // LOCAL DEPENDENCIES
 const {generateMessage, generateLocationMessage} = require('./utils/message');
 const {isRealString} = require('./utils/validation');
 const {Users} = require('./utils/users');
+
 //VARIABLES
 let publicPath = path.join(__dirname, '../public');
 let app = express();
@@ -17,8 +19,8 @@ let server = http.createServer(app);
 let io = socketIO(server);
 let users = new Users();
 //SET ROOT
-app.use(express.static(publicPath));
-
+app.use('/', express.static(publicPath));
+console.log(publicPath);
 
 //REGISTER AN EVENT LISTENER
 io.on('connection', (socket) => {
@@ -72,7 +74,11 @@ io.on('connection', (socket) => {
         let user = users.getUser(socket.id);
         console.log(socket.id);
         if(user){
-            io.to(user.room).emit('newLocationMessage', generateLocationMessage(user.name, coords.latitude, coords.longitude));
+            generateLocationMessage(user.name, coords.latitude, coords.longitude, (from, createdAt, value) => {
+                io.to(user.room).emit('newLocationMessage', {from, createdAt, value});
+                console.log("test");
+            })
+           
         }   
      
     });

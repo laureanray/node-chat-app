@@ -4,7 +4,7 @@ ol li{
 }
 
 .parent-div{
-  padding: 20px 0 20px 0;
+ 
 }
 
 .chat_footer{
@@ -27,6 +27,9 @@ ol li{
   margin-right: 10px;
 }
 
+.main-chat .row .col-2:first-child{
+  padding: 20px 10px 20px 10px;
+}
 
 .chat__messages {
   flex-grow: 1;

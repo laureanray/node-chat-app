@@ -24,14 +24,15 @@
       <div class="main-chat">
             <div class="container-fluid">
                     <div class="row">
-                        <div class="col-2">
-                                <div class="chat__sidebar">
-                                        <h5> People  <span class="badge badge-light" id="number">4</span></h5>
+                        <div class="col-3 bg-dark" >
+                                <div class="chat__sidebar"><br>
+                                        <h5 class="text-light"> People  <span class="badge badge-light" id="number">4</span></h5>
                                         <div id="users" class="users"></div>
                                 </div>
                         </div>
-                        <div class="col-10">
+                        <div class="col-9">
                                 <div class="chat__main">
+                                 
                                         <ol id="messages" class="chat__messages list-group list-group-flush">
                                         </ol>
                                 </div>
@@ -40,7 +41,7 @@
                                                     <input type="text" class="form-control" name="message" placeholder="Message" autofocus autofocus="off"/> <br>
                                                     <div class="btn-group" role="group" aria-label="Basic example">
                                                             <button class="btn btn-dark">Send</button>
-                                                            <button class="btn btn-muted"id="send-location"> Send Location </button>  
+                                                            <button class="btn btn-light"id="send-location"> Send Location <img src="img/signs.png" alt=""> </button>  
                                                           </div>
                                                      
                                                 </form>
@@ -62,7 +63,7 @@
     <script id="message-template" type="text/template">
         <li class="list-group-item animated fadeIn">
             <div class="message__title">
-                <h6 class="badge badge-secondary" id="from">{{from}}</h6>
+                <h6 class="badge badge-dark" id="from">{{from}}</h6>
                 <span class="text-muted" id="time-stamp">{{createdAt}}</span>
             </div>
             <div class="message__body">
@@ -72,13 +73,14 @@
     </script>
 
     <script id="location-message-template" type="text/template">
-        <li class="message">
+        <li class="list-group-item animated tada">
             <div class="message__title">
-                <h4>{{from}}</h4>
-                <span>{{createdAt}}</span>
+                    <h6 class="badge badge-dark" id="from">{{from}}</h6>
+                    <span class="text-muted" id="time-stamp">{{createdAt}}</span>
             </div>
             <div class="message__body">
-               <a href="{{url}}" target="_blank"> My current location </a>
+               
+                <img class="rounded img-fluid" src="/img/_temp/{{value}}.jpeg" alt="">
             </div>
         </li>
     </script>

@@ -35,7 +35,7 @@ socket.on('updateUserList', function (users) {
    var ol = $('<ol class=\'list-group\'></ol>');
 
    users.forEach(function (user) {
-    ol.append($('<li class=\'list-group-item\'></li>').text(user));
+    ol.append($('<li class=\'list-group-item bg-secondary text-light\'></li>').text(user));
    });
    $('#number').html(users.length);
    $('#users').html(ol);
@@ -60,16 +60,19 @@ socket.on('roomName', function(room) {
 });
 
 socket.on('newLocationMessage', function(message)  {
-    var location_stamp = moment(message.createdAt).format('h:mm a');
-    var template = $('#location-message-template').html();
-    var html = Mustache.render(template, {
-        url: message.url,
-        from: message.from,
-        createdAt: location_stamp
-    });
 
-    $('#messages').append(html);
-    scrollToBottom();
+            console.log('this should not be instant');
+            var location_stamp = moment(message.createdAt).format('h:mm a');
+            var template = $('#location-message-template').html();
+            var html = Mustache.render(template, {
+                from: message.from,
+                createdAt: location_stamp,
+                value: message.value
+            });
+            $('#messages').append(html);
+            scrollToBottom();
+       
+    
     // var li = $('<li></li>');
 
     // var a = $('<a target="_blank"> My current location </a>');
@@ -108,14 +111,16 @@ locationButton.on('click', function() {
 
     locationButton.attr('disabled', 'disabled').text('Sending location ...');
     navigator.geolocation.getCurrentPosition(function(position) {
-        
-        locationButton.removeAttr('disabled').text('Send location');
         socket.emit('createLocationMessage', {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
         });
+       socket.on('newLocationMessage', () => {
+        locationButton.removeAttr('disabled').html('Send location <img src=\"img/signs.png\" >');
+      
+       })
     }, function () {
-        locationButton.removeAttr('disabled').text('Send location');
+        locationButton.removeAttr('disabled').html('Send location <img src=\"img/signs.png\" >');
         alert('Unable to fetch location');
     });
 });
