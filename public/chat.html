@@ -80,9 +80,9 @@
 
     <script id="message-template" type="text/template">
         <li class="list-group-item animated fadeIn">
-89            <div class="message__title">
+         <div class="message__title">
                 
-                <h6 class="badge badge-dark" id="from">{{from}}    </h6>
+                <h6 class="badge badge-dark" id="from">{{from}}</h6>
                 <span class="text-muted" id="time-stamp">{{createdAt}}</span>
             </div>
             <div class="message__body">
@@ -99,11 +99,10 @@
             </div>
             <div class="message__body">
                
-                <img class="rounded img-fluid" src="/img/_temp/{{value}}.jpeg" alt="">
+                <img class="rounded img-fluid" src="{{url}}" alt="">
             </div>
         </li>
     </script>
-   
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/libs/moment.js"></script>
     <script src="/js/libs/mustache.js"></script>

@@ -70,8 +70,9 @@ socket.on('newLocationMessage', function(message)  {
             var template = $('#location-message-template').html();
             var html = Mustache.render(template, {
                 from: message.from,
+                url: message.url,
                 createdAt: location_stamp,
-                value: message.value
+                
             });
             $('#messages').append(html);
             scrollToBottom();

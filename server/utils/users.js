@@ -3,7 +3,6 @@
     name: 'Haha',
     room: 'Ewan'
 }]
-
 class Users {
     constructor () {
         this.users = [];

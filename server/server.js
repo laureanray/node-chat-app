@@ -30,15 +30,14 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('User disconnected');
         let user = users.removeUser(socket.id);
-
+        fs.unlink('../public/img/_temp/__temp', () => {
+            console.log('Cache Deleted');
+        })
         if(user){
             io.to(user.room).emit('updateUserList', users.getUserList(user.room));
             io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} has left the room.`));
         }
     });
-
-
-
 
     // JOIN ROOM
     socket.on('join', (params, callback) => {
@@ -78,13 +77,8 @@ io.on('connection', (socket) => {
         let user = users.getUser(socket.id);
         console.log(socket.id);
         if(user){
-            generateLocationMessage(user.name, coords.latitude, coords.longitude, (from, createdAt, value) => {
-                io.to(user.room).emit('newLocationMessage', {from, createdAt, value});
-                console.log("test");
-            })
-           
+            io.to(user.room).emit('newLocationMessage', generateLocationMessage(user.name, coords.latitude, coords.longitude));
         }   
-     
     });
 });
 
