@@ -1,8 +1,3 @@
-[{
-    id: 'qwrfawfoabfjouvgb3',
-    name: 'Haha',
-    room: 'Ewan'
-}]
 class Users {
     constructor () {
         this.users = [];
@@ -30,7 +25,10 @@ class Users {
         let namesArray = users.map((user) =>  user.name);
         return namesArray;
     }
+    
 }
+
+
 
 module.exports = {Users};
 

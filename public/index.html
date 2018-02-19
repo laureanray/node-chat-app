@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.css">
     <script src="/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="/js/index.js"></script>
+  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <script src="/pace/pace.js"></script>
     <link href="/pace/themes/pace-theme-barber-shop.css" rel="stylesheet" />
@@ -44,6 +44,11 @@
        <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
        <meta name="theme-color" content="# ">
 </head>
+<style>
+    li{
+        cursor: pointer;
+    }
+</style>
 <body class="centered-form">
     <div class="container">
        <div class="parent-div">
@@ -57,14 +62,14 @@
                                 <h4 class="text-dark"> Join a room. </h4>
                                 <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Public</a>
+                                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Active</a>
                                           <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Rooms</a>
                                         </div>
                                       </nav>
                                       <div class="tab-content" id="nav-tabContent">
-                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <div id="rooms" class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                             <!-- List of Public Rooms Goes Here -->
-
+                                         
 
                                         </div>
                                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -97,5 +102,11 @@
         </div>
        </div>        
     </div> 
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/libs/moment.js"></script>
+    <script src="/js/libs/mustache.js"></script>
+    <script src="/js/libs/deparam.js"></script>
+    
+    <script src="/js/index.js"></script>
 </body>
 </html>
