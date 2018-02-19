@@ -14,7 +14,7 @@ var generateLocationMessage = (from, latitude, longitude) => {
     let APP_CODE = 'VvaylvgaA-03wjKxc7PoaA';
     let date = new Date().getUTCDate();
     let value = randomstring.generate(10);
-    let map_URI = `https://image.maps.cit.api.here.com/mia/1.6/mapview?app_id=${APP_ID}&app_code=${APP_CODE}&lat=${latitude}&lon=${longitude}&z=19&w=940&h=320`;
+    let map_URI = `https://image.maps.cit.api.here.com/mia/1.6/mapview?app_id=${APP_ID}&app_code=${APP_CODE}&lat=${latitude}&lon=${longitude}&z=10&w=940&h=320`;
     return {
         from,
         url: map_URI,
