@@ -30,21 +30,22 @@ let rooms = [];
 let usr_ctr = 0;
 //REGISTER AN EVENT LISTENER
 io.on('connection', (socket) => {
-    socket.emit('news', rooms);
+    socket.emit('roomEvent', rooms); 
     console.log('New user connected');
     usr_ctr = usr_ctr + 1;
 
  
    
-
     socket.on('disconnect', () => {
         console.log('User disconnected');
         usr_ctr = usr_ctr - 1;
+        
         let user = users.removeUser(socket.id);
-        fs.unlink('../public/img/_temp/__temp', () => {
-            console.log('Cache Deleted');
-        })
+        let index = rooms.length - 1;
+
+        io.emit('roomEvent', rooms);
         if(user){
+            
             io.to(user.room).emit('updateUserList', users.getUserList(user.room));
             io.to(user.room).emit('newMessage', generateMessage('Admin', `${user.name} has left the room.`));
         }
@@ -74,10 +75,8 @@ io.on('connection', (socket) => {
         socket.broadcast.to(params.room).emit('newMessage', generateMessage('Admin', `${params.name} has joined.`));
         socket.broadcast.to(params.room).emit('roomName', params.room);
         console.log(rooms);
-        socket.emit('test', {text: 'Hello'})
-        
-        
-
+        io.emit('roomEvent', rooms);     
+       
  
         callback();
       
@@ -110,5 +109,5 @@ io.on('connection', (socket) => {
 
 // WELL BASCIALLY THE SERVER
 server.listen(port, () => {
-    console.log(`Server is up and running on port: ${port}`);
+    console.log(`Server is up and running on port: ${port} :)`);
 });

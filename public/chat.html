@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/font/font-book/stylesheet.css">
     <title> Anonychat </title>
     <link rel="stylesheet" href="/css/chat.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <!-- ICON -->
     <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
@@ -36,78 +37,57 @@
     <meta name="msapplication-TileImage" content="/img/ms-icon-144x144.png">
     <meta name="theme-color" content="#202020">
 </head>
-
 <body class="chat">
-  <div class="parent-div">
-      <div class="main-chat">
-            <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-3 bg-dark" >
-                                <div class="chat__sidebar"><br>
-                                        <h5 class="text-light"> People  <span class="badge badge-light" id="number"> 0  </span></h5>
-                                        <div id="users" class="users"></div>
-                                </div>
-                        </div>
-                        <div class="col-9">
-                                <div class="chat__main">
-                                 
-                                        <ol id="messages" class="chat__messages list-group list-group-flush">
-                                        </ol>
-                                </div>
-                                <div class="chat__footer">
-                                            <form id="message-form" class="form-group" autocomplete="off">
-                                                    <input type="text" class="form-control" name="message" placeholder="Message" autofocus autofocus="off"/> <br>
-                                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <button class="btn btn-dark">Send</button>
-                                                            <button class="btn btn-light"id="send-location"> Send Location <img src="img/signs.png" alt=""> </button>  
-                                                          </div>
-                                                     
-                                                </form>
-                                               
-                                </div>
-                        </div>
-                    </div>
-                </div>
-      </div>
-  </div>
 
-
-
-
-
-    <!-- Untouched -->
-    
-
-    <script id="message-template" type="text/template">
-        <li class="list-group-item animated fadeIn">
-         <div class="message__title">
-                
-                <h6 class="badge badge-dark" id="from">{{from}}</h6>
-                <span class="text-muted" id="time-stamp">{{createdAt}}</span>
-            </div>
-            <div class="message__body">
-                <p>{{text}}</p>
-            </div>
-        </li>
-    </script>
-
-    <script id="location-message-template" type="text/template">
-        <li class="list-group-item animated tada">
+        <div class="chat__sidebar">
+          <h3>People</h3>
+          <div id="users"></div>
+        </div>
+      
+        <div class="chat__main">
+          <ol id="messages" class="chat__messages"></ol>
+      
+          <div class="chat__footer">
+            <form id="message-form">
+              <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+              <button>Send <img src="./img/send.png" alt=""></button>
+            </form>
+            <button id="send-location">Send location <img src="./img/signs.png" alt=""></button>
+          </div>
+        </div>
+      
+        <script id="message-template" type="text/template">
+          <li class="message">
             <div class="message__title">
-                    <h6 class="badge badge-dark" id="from">{{from}}</h6>
-                    <span class="text-muted" id="time-stamp">{{createdAt}}</span>
+              <h4>{{from}}</h4>
+              <span>{{createdAt}}</span>
             </div>
             <div class="message__body">
-               
-                <img class="rounded img-fluid" src="{{url}}" alt="">
+              <p>{{text}}</p>
             </div>
-        </li>
-    </script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/libs/moment.js"></script>
-    <script src="/js/libs/mustache.js"></script>
-    <script src="/js/libs/deparam.js"></script>
-    <script src="/js/chat.js"></script>
-</body>
-    
-</html>
+          </li>
+        </script>
+      
+        <script id="location-message-template" type="text/template">
+          <li class="message">
+            <div class="message__title">
+              <h4>{{from}}</h4>
+              <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+              <p>
+                <img class="img-fluid" src="{{url}}" target="_blank"></img>
+              </p>
+            </div>
+          </li>
+        </script>
+      
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/libs/jquery-3.1.0.min.js"></script>
+        <script src="/js/libs/moment.js"></script>
+        <script src="/js/libs/mustache.js"></script>
+        <script src="/js/libs/deparam.js"></script>
+        <script src="/js/chat.js"></script>
+      </body>
+      
+      </html>
